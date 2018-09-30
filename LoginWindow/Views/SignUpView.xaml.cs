@@ -23,10 +23,10 @@ namespace LoginWindow.Views
 
         private SignUpModel _signUpModel;
 
-        public SignUpView(NavigationModel navigationModel, Storage storage)
+        public SignUpView(Storage storage)
         {
             InitializeComponent();
-            _signUpModel = new SignUpModel(navigationModel, storage);
+            _signUpModel = new SignUpModel(storage);
         }
 
         private void OnSignUpClicked(object sender, RoutedEventArgs e)

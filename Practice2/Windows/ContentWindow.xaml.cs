@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace LoginWindow.Windows
+namespace Practice2.Windows
 {
     /// <summary>
     /// Interaction logic for ContentWindow.xaml

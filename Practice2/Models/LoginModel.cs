@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using LoginWindow.Manager;
+using Practice2.Manager;
 
-namespace LoginWindow.Models
+namespace Practice2.Models
 {
     public class LoginModel
     {

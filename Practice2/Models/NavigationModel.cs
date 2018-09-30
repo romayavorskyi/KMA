@@ -1,8 +1,8 @@
-﻿using LoginWindow.Windows;
-using System;
-using LoginWindow.Views;
+﻿using System;
+using Practice2.Views;
+using Practice2.Windows;
 
-namespace LoginWindow.Models
+namespace Practice2.Models
 {
 
     public enum ModesEnum
@@ -25,7 +25,7 @@ namespace LoginWindow.Models
             _contentWindow = contentWindow;
             _loginView = new LoginView(storage);
             _signUpView = new SignUpView(storage);
-            _mainView = new MainView();
+            _mainView = new MainView(storage);
         }
 
         public void Navigate(ModesEnum mode)

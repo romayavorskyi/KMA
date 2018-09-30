@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
-using LoginWindow.Manager;
+using Practice2.Manager;
 
-namespace LoginWindow.Models
+namespace Practice2.Models
 {
     public class SignUpModel
     {
@@ -32,9 +32,7 @@ namespace LoginWindow.Models
                 MessageBox.Show("User with entered login exists");
                 return;
             }
-
-            UserModel createdUser = new UserModel(login, password);
-            _storage.Users.Add(createdUser.Login, createdUser);
+            _storage.AddUser(login, password);
             NavigationManager.Instance.Navigate(ModesEnum.Login);
         }
 

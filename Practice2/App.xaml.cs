@@ -1,9 +1,9 @@
 ﻿using System.Windows;
-using LoginWindow.Manager;
-using LoginWindow.Models;
-using LoginWindow.Windows;
+using Practice2.Manager;
+using Practice2.Models;
+using Practice2.Windows;
 
-namespace LoginWindow
+namespace Practice2
 {
     /// <summary>
     /// Interaction logic for App.xaml
