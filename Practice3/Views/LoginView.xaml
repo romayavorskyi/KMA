@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Practice3.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:userControls="clr-namespace:Practice3.UserControls"
+        mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="Foreground" Value="Blue"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+            <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <userControls:LableAndTextControl Label="Login" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <StackPanel Grid.Row="1" Margin="5,0,5,0">
+            <Label Content="Password"/>
+            <TextBox Name="PasswordTextBox" Text="{Binding Password}"/>
+        </StackPanel>
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="Log in" Grid.Column="0" Height="20" Width="50" Command="{Binding LoginCommand}" Style="{StaticResource ButtonStyle}"/>
+            <Button Content="Sign up" Grid.Column="1" Height="20" Width="50" Command="{Binding SignUpCommand}" Style="{StaticResource ButtonStyle}"/>
+        </Grid>
+    </Grid>
+</UserControl>
