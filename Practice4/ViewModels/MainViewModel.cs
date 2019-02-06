@@ -1,12 +1,11 @@
 ﻿using System.Collections.ObjectModel;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using Practice3.Models;
-using Practice3.Tools;
+using Practice4.Models;
+using Practice4.Tools;
 
-namespace Practice3.ViewModels
+namespace Practice4.ViewModels
 {
     class MainViewModel: ObservableItem
     {

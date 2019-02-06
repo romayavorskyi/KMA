@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice1", "LoginWindow\Practice1.csproj", "{EFFDD1AE-79A7-4241-9ACE-E4F02764C095}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice2", "LoginWindow\Practice2.csproj", "{EFFDD1AE-79A7-4241-9ACE-E4F02764C095}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice2", "Practice2\Practice2.csproj", "{DC3B10F4-EE45-437D-93C6-54B7ADE71943}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice3", "Practice2\Practice3.csproj", "{DC3B10F4-EE45-437D-93C6-54B7ADE71943}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice3", "Practice3\Practice3.csproj", "{461A1701-7156-4A71-A8BD-129456E5DB43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice4", "Practice3\Practice4.csproj", "{461A1701-7156-4A71-A8BD-129456E5DB43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice5", "Practice4\Practice5.csproj", "{714BEEC2-A390-4380-A6AD-2C1D4EED7BA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{461A1701-7156-4A71-A8BD-129456E5DB43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{461A1701-7156-4A71-A8BD-129456E5DB43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{461A1701-7156-4A71-A8BD-129456E5DB43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{714BEEC2-A390-4380-A6AD-2C1D4EED7BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{714BEEC2-A390-4380-A6AD-2C1D4EED7BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{714BEEC2-A390-4380-A6AD-2C1D4EED7BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{714BEEC2-A390-4380-A6AD-2C1D4EED7BA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

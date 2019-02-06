@@ -3,9 +3,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using Practice3.Tools;
+using Practice4.Tools;
 
-namespace Practice3.Models
+namespace Practice4.Models
 {
     [Serializable]
     class MainModel
