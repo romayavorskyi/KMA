@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Practice2.Annotations;
 using Practice2.Models;
 using Practice2.Tools;
 
 namespace Practice2.ViewModels
 {
-    class LoginViewModel : ObservableItem
+    class LoginViewModel : INotifyPropertyChanged
     {
         private string _name;
         private string _password;
@@ -28,13 +30,21 @@ namespace Practice2.ViewModels
         public string Name
         {
             get { return _name; }
-            set { ChangeAndNotify(ref _name, value, () => Name); }
+            set
+            {
+                _name = value;
+                OnPropertyChanged(nameof(Name));
+            }
         }
 
         public string Password
         {
             get { return _password; }
-            set { ChangeAndNotify(ref _password, value, () => Password); }
+            set
+            {
+                _password = value;
+                OnPropertyChanged(nameof(Password));
+            }
         }
 
         public ICommand LoginCommand
@@ -48,7 +58,11 @@ namespace Practice2.ViewModels
 
                 return _loginCommand;
             }
-            set { ChangeAndNotify(ref _loginCommand, value, () => LoginCommand); }
+            set
+            {
+                _loginCommand = value;
+                OnPropertyChanged(nameof(LoginCommand));
+            }
         }
 
         public ICommand SignUpCommand
@@ -62,7 +76,11 @@ namespace Practice2.ViewModels
 
                 return _signUpCommand;
             }
-            set { ChangeAndNotify(ref _signUpCommand, value, () => SignUpCommand); }
+            set
+            {
+                _signUpCommand = value;
+                OnPropertyChanged(nameof(SignUpCommand));
+            }
         }
 
         private void SignUpExecute(object obj)
@@ -78,11 +96,20 @@ namespace Practice2.ViewModels
         private void LoginExecute(object obj)
         {
             Model.Login(Name, Password);
+
         }
 
         private bool LoginCanExecute(object obj)
         {
             return true;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

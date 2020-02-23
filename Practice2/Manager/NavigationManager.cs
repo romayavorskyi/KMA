@@ -13,15 +13,14 @@ namespace Practice2.Manager
         {
             get
             {
-                if (_instance == null)
+                lock (_lock)
                 {
+                    if (_instance == null)
                     {
-                        lock (_lock)
-                        {
                             _instance = new NavigationManager();
-                        }
                     }
                 }
+
                 return _instance;
             }
         }

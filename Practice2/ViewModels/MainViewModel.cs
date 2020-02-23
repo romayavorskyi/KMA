@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Practice2.Annotations;
 using Practice2.Models;
 using Practice2.Tools;
 
 namespace Practice2.ViewModels
 {
-    class MainViewModel: ObservableItem
+    class MainViewModel: INotifyPropertyChanged
     {
         private ObservableCollection<UserModel> _users;
 
@@ -18,7 +22,11 @@ namespace Practice2.ViewModels
         public ObservableCollection<UserModel> Users
         {
             get { return _users; }
-            set { ChangeAndNotify(ref _users, value, () => Users); }
+            set
+            {
+                _users = value;
+                OnPropertyChanged(nameof(Users));
+            }
         }
 
         public MainViewModel(Storage storage)
@@ -31,6 +39,14 @@ namespace Practice2.ViewModels
         private void UIOnUserAdded(UserModel user)
         {
             Users.Add(user);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

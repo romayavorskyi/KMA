@@ -28,7 +28,7 @@ namespace Practice3.Models
 
         public void DoMagic()
         {
-            SerializeDeserializeBinary();
+            CreateDoVeryImportantWorkThread();
         }
 
         public async Task DoLongOperation()
@@ -85,6 +85,7 @@ namespace Practice3.Models
         private void DoVeryImportantWork()
         {
             Thread.Sleep(5000);
+            MessageBox.Show("Work finished!");
         }
     }
 }

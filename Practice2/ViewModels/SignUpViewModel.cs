@@ -1,10 +1,13 @@
-﻿using System.Windows.Input;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using Practice2.Annotations;
 using Practice2.Models;
 using Practice2.Tools;
 
 namespace Practice2.ViewModels
 {
-    class SignUpViewModel: ObservableItem
+    class SignUpViewModel: INotifyPropertyChanged
     {
 
         private string _name;
@@ -22,13 +25,21 @@ namespace Practice2.ViewModels
         public string Name
         {
             get { return _name; }
-            set { ChangeAndNotify(ref _name, value, () => Name); }
+            set
+            {
+                _name = value;
+                OnPropertyChanged(nameof(Name));
+            }
         }
 
         public string Password
         {
             get { return _password; }
-            set { ChangeAndNotify(ref _password, value, () => Password); }
+            set
+            {
+                _password = value;
+                OnPropertyChanged(nameof(Password));
+            }
         }
 
         public ICommand SignUpCommand
@@ -42,7 +53,11 @@ namespace Practice2.ViewModels
 
                 return _signUpCommand;
             }
-            set { ChangeAndNotify(ref _signUpCommand, value, () => SignUpCommand); }
+            set
+            {
+                _signUpCommand = value;
+                OnPropertyChanged(nameof(SignUpCommand));
+            }
         }
 
         private void SignUpExecute(object obj)
@@ -55,5 +70,12 @@ namespace Practice2.ViewModels
             return true;
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
