@@ -3,6 +3,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Navigation;
+using System.Windows.Threading;
 using Practice4.Tools;
 
 namespace Practice4.Models
@@ -28,7 +30,7 @@ namespace Practice4.Models
 
         public void DoMagic()
         {
-            SerializeDeserializeBinary();
+            DoLongOperation();
         }
 
         public async Task DoLongOperation()
@@ -70,7 +72,9 @@ namespace Practice4.Models
         private void CreateDoVeryImportantWorkTask()
         {
             //Task.Factory.StartNew(DoVeryImportantWork);
-            Task task = new Task(DoVeryImportantWork);
+            CancellationTokenSource source = new CancellationTokenSource();
+            source.Cancel();
+            Task task = new Task(() => DoVeryImportantWork());
             task.Start();
         }
 
@@ -84,7 +88,7 @@ namespace Practice4.Models
 
         private void DoVeryImportantWork()
         {
-            Thread.Sleep(5000);
+                Thread.Sleep(5000);
         }
     }
 }

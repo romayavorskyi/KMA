@@ -1,10 +1,33 @@
-﻿namespace Practice2.Models
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace Practice2.Models
 {
-    public class UserModel
+    public class UserModel: INotifyPropertyChanged
     {
 
-        public string Login { get; private set; }
-        public string Password { get; private set; }
+        private string _login;
+        private string _password;
+
+        public string Login
+        {
+            get { return _login; }
+            set
+            {
+                _login = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                OnPropertyChanged();
+            }
+        }
 
         public UserModel(string login, string password)
         {
@@ -12,5 +35,11 @@
             Password = password;
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

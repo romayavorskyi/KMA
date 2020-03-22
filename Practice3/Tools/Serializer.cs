@@ -24,7 +24,6 @@ namespace Practice3.Tools
             {
                 var formatter = new BinaryFormatter();
                 var filePath = CheckAndCreatePath(fileName);
-
                 using (var fs = new FileStream(filePath, FileMode.OpenOrCreate))
                 {
                     formatter.Serialize(fs, obj);

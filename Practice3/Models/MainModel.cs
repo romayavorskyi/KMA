@@ -28,7 +28,7 @@ namespace Practice3.Models
 
         public void DoMagic()
         {
-            CreateDoVeryImportantWorkThread();
+            SerializeDeserializeBinary();
         }
 
         public async Task DoLongOperation()
@@ -38,9 +38,16 @@ namespace Practice3.Models
 
         private void SerializeDeserializeBinary()
         {
-            SerializeManager.SerializeBinary(_storage, "serializebinary.txt");
-            var storage = SerializeManager.DeserializeBinary<Storage>("serializebinary.txt");
-            Logger.Log("Storage was serialized and deserialized");
+            try
+            {
+                SerializeManager.SerializeBinary(_storage, "serializebinary.txt");
+                var storage = SerializeManager.DeserializeBinary<Storage>("serializebinary.txt");
+                Logger.Log("Storage was serialized and deserialized");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error handling");
+            }
         }
 
         private void SerializeDeserializeXML()

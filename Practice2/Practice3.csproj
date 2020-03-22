@@ -71,7 +71,7 @@
     <Compile Include="Models\SignUpModel.cs" />
     <Compile Include="Models\Storage.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
